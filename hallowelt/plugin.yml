@@ -1,0 +1,11 @@
+name: Hallo_Welt-Plugin
+main: HalloWelt
+api-version: 1.15
+version: 1.4
+commands:
+  halloserver:
+    description: Sendeteinen Gruß an denn Server
+    usage: /halloserver
+  diamant:
+    description: diamant vor dir
+    usage: /diamant
