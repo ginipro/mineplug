@@ -61,20 +61,20 @@ public  class HalloWelt extends JavaPlugin{
             baueGrundfläche(spieler,7,1);
             baueGrundfläche(spieler,5,2);
             baueGrundfläche(spieler,3,3);
-
-
+            spieler.getInventory().setItemInMainHand(new ItemStack(Material.BEACON) );
+            return true;
         }
         return  false;
     }
 
-    void baueGrundfläche(Player spieler,int n,int y){
+    void baueGrundfläche(Player spieler,int n,int offset){
         Location p = spieler.getLocation();
         p.setX( p.getX() + 5);
         World w  = spieler.getWorld();
-        double yStart = p.getY();
-        double xStart = p.getX();
-        double zStart = p.getZ();
-        p.setY(yStart+y);
+        double yStart = p.getY()+offset;
+        double xStart = p.getX()+offset;
+        double zStart = p.getZ()+offset;
+        p.setY(yStart);
         for(int x = 0; x < n; x++){
             p.setX(xStart + x);
             for(int z = 0; z < n; z++){
