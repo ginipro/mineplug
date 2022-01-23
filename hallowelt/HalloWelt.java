@@ -20,7 +20,7 @@ public  class HalloWelt extends JavaPlugin{
 
     public boolean onCommand(CommandSender sender, Command befehl, String befehlsname,String[] args){
 
-        this.getLogger().info("befehlt="+befehlsname);
+        this.getLogger().info("befehl="+befehlsname);
 
         if( befehlsname.equals("halloserver")) {
 
@@ -55,7 +55,33 @@ public  class HalloWelt extends JavaPlugin{
 
             return  true;
         }
+        if( befehlsname.equals("pyramide")) {
+            Player spieler = (Player) sender;
+            baueGrundfläche(spieler,9,0);
+            baueGrundfläche(spieler,7,1);
+            baueGrundfläche(spieler,5,2);
+            baueGrundfläche(spieler,3,3);
 
+
+        }
         return  false;
+    }
+
+    void baueGrundfläche(Player spieler,int n,int y){
+        Location p = spieler.getLocation();
+        p.setX( p.getX() + 5);
+        World w  = spieler.getWorld();
+        double yStart = p.getY();
+        double xStart = p.getX();
+        double zStart = p.getZ();
+        p.setY(yStart+y);
+        for(int x = 0; x < n; x++){
+            p.setX(xStart + x);
+            for(int z = 0; z < n; z++){
+                p.setZ(zStart + z);
+                Block block = w.getBlockAt(p);
+                block.setType(Material.GOLD_BLOCK);
+            }
+        }
     }
 }

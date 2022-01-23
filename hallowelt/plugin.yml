@@ -9,3 +9,6 @@ commands:
   diamant:
     description: diamant vor dir
     usage: /diamant
+  pyramide:
+    description: pyramide da
+    usage: /pyramide
